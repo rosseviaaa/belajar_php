@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Form Input Data Siswa</h2>
+    <form action="simpan.php" method="POST">
+        <label>NIS</label>
+        <input type="text" name="nis" required>
+
+        <label>Nama</label>
+        <input type="text" name="nama" required>
+
+        <label>Kelas</label>
+        <input type="text" name="kelas" required>
+
+        <label>Jurusan</label>
+        <input type="text" name="jurusan" required>
+        <button type="submit">Simpan</button>
+    </form>
+
+    <?php
+include 'tampil.php';
+?> 
+
+<<script>
+    // Efek transisi saat submit tombol
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', function() {
+            const btn = this.querySelector('button');
+            btn.style.opacity = '0.7';
+            btn.innerText = 'Mohon Tunggu...';
+        });
+    });
+
+    // Menghilangkan pesan sukses otomatis setelah 3 detik
+    const alertBox = document.querySelector('.alert');
+    if(alertBox) {
+        setTimeout(() => {
+            alertBox.style.display = 'none';
+        }, 3000);
+    }
+</script>
+
+</body>
+</html>
